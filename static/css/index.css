@@ -133,5 +133,83 @@ body {
   font-size: smaller;
 }
 
+/* Dataset Section Animations */
+.dataset-image {
+  transition: transform 0.5s ease-in-out;
+  max-width: 100%;
+  height: auto;
+}
+
+.dataset-image:hover {
+  transform: scale(1.05);
+}
+
+.animate__animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animate__fadeIn {
+  animation-name: fadeIn;
+}
+
+.animate__delay-1s {
+  animation-delay: 1s;
+}
+
+.animate__delay-2s {
+  animation-delay: 2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section Backgrounds and Shadows */
+.hero.is-primary {
+  background-color: #f8f9fa !important;
+}
+
+.hero.is-info {
+  background-color: #e9ecef !important;
+}
+
+.content-box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+  color: #000000;
+}
+
+.content-box p {
+  color: #000000;
+}
+
+.title-box {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  color: #000000;
+}
+
+.title-box .title {
+  color: #000000;
+}
+
+.title {
+  color: #000000 !important;
+}
+
 
 
