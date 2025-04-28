@@ -250,46 +250,48 @@ of 17 infants.
   <!-- End SmallSleeps Dataset Section -->
 
   <!-- Purity Bins Section -->
-  <section class="hero is-small is-primary">
+  <section class="hero is-small" style="background-color: #f9f6f3;">
     <div class="hero-body">
       <div class="container">
         <div class="columns is-centered">
           <div class="column is-four-fifths">
-            <div class="title-box animate__animated animate__fadeIn">
-              <h2 class="title is-3 has-text-centered">Purity Bins: Capturing the Complexity of Infant Sleep Transitions</h2>
-            </div>
-            <div class="content-box animate__animated animate__fadeIn animate__delay-1s">
-              <ul style="text-align: left; font-size: 1.13rem; padding-left: 2rem; list-style-type: disc;">
-                <li style="margin-bottom: 1rem;">
-                  The SmallSleeps dataset introduces <b>"purity bins"</b> to address the natural heterogeneity of infant sleep-wake transitions:
-                  <ul style="margin-top: 0.5rem; padding-left: 2rem; list-style-type: disc;">
-                    <li>Real-world infant sleep patterns often involve mixed states and gradual transitions.</li>
-                    <li>Instead of simply labeling clips as "sleep" or "wake," we use five threshold bins based on the percentage of time in a single state within a 90-second clip:</li>
+            <div style="background: rgba(33, 87, 243, 0.13); border-radius: 18px; padding: 2rem 2rem 1.5rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+              <div class="title-box animate__animated animate__fadeIn">
+                <h2 class="title is-3 has-text-centered">Purity Bins: Capturing the Complexity of Infant Sleep Transitions</h2>
+              </div>
+              <div class="content-box animate__animated animate__fadeIn animate__delay-1s">
+                <ul style="text-align: left; font-size: 1.13rem; padding-left: 2rem; list-style-type: disc;">
+                  <li style="margin-bottom: 1rem;">
+                    The SmallSleeps dataset introduces <b>"purity bins"</b> to address the natural heterogeneity of infant sleep-wake transitions:
                     <ul style="margin-top: 0.5rem; padding-left: 2rem; list-style-type: disc;">
-                      <li>90-100%</li>
-                      <li>80-90%</li>
-                      <li>70-80%</li>
-                      <li>60-70%</li>
-                      <li>50-60%</li>
+                      <li>Real-world infant sleep patterns often involve mixed states and gradual transitions.</li>
+                      <li>Instead of simply labeling clips as "sleep" or "wake," we use five threshold bins based on the percentage of time in a single state within a 90-second clip:</li>
+                      <ul style="margin-top: 0.5rem; padding-left: 2rem; list-style-type: disc;">
+                        <li>90-100%</li>
+                        <li>80-90%</li>
+                        <li>70-80%</li>
+                        <li>60-70%</li>
+                        <li>50-60%</li>
+                      </ul>
+                      <li>This approach provides a more nuanced foundation for algorithm development.</li>
                     </ul>
-                    <li>This approach provides a more nuanced foundation for algorithm development.</li>
-                  </ul>
-                </li>
-                <li style="margin-bottom: 1rem;">
-                  <b>Benefits of the stratified approach:</b>
-                  <ul style="margin-top: 0.5rem; padding-left: 2rem; list-style-type: disc;">
-                    <li>Enables training on "pure" state clips (90-100% in one state) to establish clear baseline performance.</li>
-                    <li>Allows systematic evaluation of how algorithm performance degrades with increasingly mixed state clips—a critical consideration for real-world deployment.</li>
-                    <li>Creates a pathway toward more sophisticated sleep segmentation in longer videos, where local behavior often contains mixed states.</li>
-                    <li>Highlights the different capabilities of:</li>
+                  </li>
+                  <li style="margin-bottom: 1rem;">
+                    <b>Benefits of the stratified approach:</b>
                     <ul style="margin-top: 0.5rem; padding-left: 2rem; list-style-type: disc;">
-                      <li><b>Pure-State Model:</b> Trained on 90-100% purity clips</li>
-                      <li><b>Mixed-State Model:</b> Trained on 70-100% purity clips</li>
+                      <li>Enables training on "pure" state clips (90-100% in one state) to establish clear baseline performance.</li>
+                      <li>Allows systematic evaluation of how algorithm performance degrades with increasingly mixed state clips—a critical consideration for real-world deployment.</li>
+                      <li>Creates a pathway toward more sophisticated sleep segmentation in longer videos, where local behavior often contains mixed states.</li>
+                      <li>Highlights the different capabilities of:</li>
+                      <ul style="margin-top: 0.5rem; padding-left: 2rem; list-style-type: disc;">
+                        <li><b>Pure-State Model:</b> Trained on 90-100% purity clips</li>
+                        <li><b>Mixed-State Model:</b> Trained on 70-100% purity clips</li>
+                      </ul>
+                      <li>These models demonstrate different capabilities in handling sleep-wake classification across varying levels of state heterogeneity.</li>
                     </ul>
-                    <li>These models demonstrate different capabilities in handling sleep-wake classification across varying levels of state heterogeneity.</li>
-                  </ul>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -299,27 +301,29 @@ of 17 infants.
   <!-- End Purity Bins Section -->
 
   <!-- Video carousel -->
-  <section class="hero is-small is-info">
+  <section class="hero is-small" style="background-color: #f9f6f3;">
     <div class="hero-body">
       <div class="container">
         <div class="columns is-centered">
           <div class="column is-three-quarters">
-            <div class="content-box">
-              <div id="video-carousel" class="carousel results-carousel" style="max-width: 1200px; margin: 0 auto;">
-                <div class="item">
-                  <video poster="" id="video1" autoplay controls muted loop height="100%" style="max-height: 1000px;">
-                    <source src="static/videos/wake_samples_7080.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="item">
-                  <video poster="" id="video2" autoplay controls muted loop height="100%" style="max-height: 1000px;">
-                    <source src="static/videos/wake_samples_8090.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="item">
-                  <video poster="" id="video3" autoplay controls muted loop height="100%" style="max-height: 1000px;">
-                    <source src="static/videos/wake_samples_90100.mp4" type="video/mp4">
-                  </video>
+            <div style="background: rgba(33, 87, 243, 0.13); border-radius: 18px; padding: 2rem 2rem 1.5rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+              <div class="content-box">
+                <div id="video-carousel" class="carousel results-carousel" style="max-width: 1200px; margin: 0 auto;">
+                  <div class="item">
+                    <video poster="" id="video1" autoplay controls muted loop height="100%" style="max-height: 1000px;">
+                      <source src="static/videos/wake_samples_7080.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="item">
+                    <video poster="" id="video2" autoplay controls muted loop height="100%" style="max-height: 1000px;">
+                      <source src="static/videos/wake_samples_8090.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="item">
+                    <video poster="" id="video3" autoplay controls muted loop height="100%" style="max-height: 1000px;">
+                      <source src="static/videos/wake_samples_90100.mp4" type="video/mp4">
+                    </video>
+                  </div>
                 </div>
               </div>
             </div>
@@ -328,6 +332,8 @@ of 17 infants.
       </div>
     </div>
   </section>
+
+  <hr style="border: none; border-top: 2px solid #e0e0e0; margin: 2.5rem 0;">
 
   <!-- Results Section -->
   <section class="hero is-small">
