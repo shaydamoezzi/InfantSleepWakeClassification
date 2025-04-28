@@ -44,6 +44,28 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+
+  <style>
+    .animated-gradient {
+      background: linear-gradient(90deg, #b3e0ff 0%, #ffb3b3 100%);
+      border-radius: 18px;
+      padding: 1.2rem 2rem;
+      margin: 2rem auto 2rem auto;
+      max-width: 700px;
+      background-size: 200% 200%;
+      animation: gradientMove 4s ease-in-out infinite;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes moveRight {
+      0% { transform: translateX(-100%) translateY(-50%); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateX(0) translateY(-50%); opacity: 0; }
+    }
+  </style>
 </head>
 <body>
 
@@ -251,186 +273,6 @@ of 17 infants.
   </section>
   <!-- End SmallSleeps Dataset Section -->
 
-  <!-- Purity Bins Section -->
-  <section class="hero is-small" style="background-color: #fff;">
-    <div class="hero-body">
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-four-fifths">
-            <div style="background: rgba(33, 87, 243, 0.13); border-radius: 18px; padding: 2rem 2rem 1.5rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
-              <div class="title-box animate__animated animate__fadeIn">
-                <h2 class="title is-3 has-text-centered">Purity Bins: Capturing the Complexity of Infant Sleep Transitions</h2>
-              </div>
-              <div class="content-box animate__animated animate__fadeIn animate__delay-1s">
-                <ul style="text-align: left; font-size: 1.13rem; padding-left: 2rem; list-style-type: disc;">
-                  <li style="margin-bottom: 1rem;">
-                    The SmallSleeps dataset introduces <b>"purity bins"</b> to address the natural heterogeneity of infant sleep-wake transitions:
-                    <ul style="margin-top: 0.5rem; padding-left: 2rem; list-style-type: disc;">
-                      <li>Real-world infant sleep patterns often involve mixed states and gradual transitions.</li>
-                      <li>Instead of simply labeling clips as "sleep" or "wake," we use five threshold bins based on the percentage of time in a single state within a 90-second clip:</li>
-                      <ul style="margin-top: 0.5rem; padding-left: 2rem; list-style-type: disc;">
-                        <li>90-100%</li>
-                        <li>80-90%</li>
-                        <li>70-80%</li>
-                        <li>60-70%</li>
-                        <li>50-60%</li>
-                      </ul>
-                      <li>This approach provides a more nuanced foundation for algorithm development.</li>
-                    </ul>
-                  </li>
-                  <li style="margin-bottom: 1rem;">
-                    <b>Benefits of the stratified approach:</b>
-                    <ul style="margin-top: 0.5rem; padding-left: 2rem; list-style-type: disc;">
-                      <li>Enables training on "pure" state clips (90-100% in one state) to establish clear baseline performance.</li>
-                      <li>Allows systematic evaluation of how algorithm performance degrades with increasingly mixed state clips—a critical consideration for real-world deployment.</li>
-                      <li>Creates a pathway toward more sophisticated sleep segmentation in longer videos, where local behavior often contains mixed states.</li>
-                      <li>Highlights the different capabilities of:</li>
-                      <ul style="margin-top: 0.5rem; padding-left: 2rem; list-style-type: disc;">
-                        <li><b>Pure-State Model:</b> Trained on 90-100% purity clips</li>
-                        <li><b>Mixed-State Model:</b> Trained on 70-100% purity clips</li>
-                      </ul>
-                      <li>These models demonstrate different capabilities in handling sleep-wake classification across varying levels of state heterogeneity.</li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Purity Bins Section -->
-
-  <!-- Video carousel -->
-  <section class="hero is-small" style="background-color: #fff;">
-    <div class="hero-body">
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-three-quarters">
-            <div style="background: rgba(33, 87, 243, 0.13); border-radius: 18px; padding: 2rem 2rem 1.5rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
-              <div class="content-box">
-                <div id="video-carousel" class="carousel results-carousel" style="max-width: 1200px; margin: 0 auto;">
-                  <div class="item">
-                    <video poster="" id="video1" autoplay controls muted loop height="100%" style="max-height: 1000px;">
-                      <source src="static/videos/wake_samples_7080.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <div class="item">
-                    <video poster="" id="video2" autoplay controls muted loop height="100%" style="max-height: 1000px;">
-                      <source src="static/videos/wake_samples_8090.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <div class="item">
-                    <video poster="" id="video3" autoplay controls muted loop height="100%" style="max-height: 1000px;">
-                      <source src="static/videos/wake_samples_90100.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Results Section -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-four-fifths">
-            <h2 class="title is-3 has-text-centered">Results and Analysis</h2>
-            <div id="results-carousel" class="carousel results-carousel" style="max-width: 1200px; margin: 0 auto;">
-              <!-- Slide 1 -->
-              <div class="item">
-                <img src="static/images/results1.png" alt="Results 1" style="width: 100%; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 1.5rem;">
-                <div class="content has-text-justified" style="font-size: 1.13rem;">
-                  <ul>
-                    <li>When using RGB features alone, models achieve moderate accuracy <span style="color: #b02318;">(red boxes)</span>​</li>
-                  </ul>
-                </div>
-              </div>
-              <!-- Slide 2 -->
-              <div class="item">
-                <img src="static/images/results2.png" alt="Results 2" style="width: 100%; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 1.5rem;">
-                <div class="content has-text-justified" style="font-size: 1.13rem;">
-                  <ul>
-                    <li>When using RGB features alone, models achieve moderate accuracy <span style="color: #b02318;">(red boxes)</span>​</li>
-                    <li>Introducing optical flow features in addition to RGB results in a substantial improvement in model performance <span style="color: #218739;">(green boxes)</span>​</li>
-                  </ul>
-                </div>
-              </div>
-              <!-- Slide 3 -->
-              <div class="item">
-                <img src="static/images/results3.png" alt="Results 3" style="width: 100%; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 1.5rem;">
-                <div class="content has-text-justified" style="font-size: 1.13rem;">
-                  <ul>
-                    <li>When using RGB features alone, models achieve moderate accuracy <span style="color: #b02318;">(red boxes)</span>​</li>
-                    <li>Introducing optical flow features in addition to RGB results in a substantial improvement in model performance <span style="color: #218739;">(green boxes)</span>​</li>
-                    <li>For pure- and mixed-state models recall increases by 12 and 11 points, respectively ​</li>
-                  </ul>
-                </div>
-              </div>
-              <!-- Slide 4 -->
-              <div class="item">
-                <img src="static/images/results4.png" alt="Results 4" style="width: 100%; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 1.5rem;">
-                <div class="content has-text-justified" style="font-size: 1.13rem;">
-                  <ul>
-                    <li>When using RGB features alone, models achieve moderate accuracy <span style="color: #b02318;">(red boxes)</span>​</li>
-                    <li>Introducing optical flow features in addition to RGB results in a substantial improvement in model performance <span style="color: #218739;">(green boxes)</span>​</li>
-                    <li>Most significant improvement is observed in the 70–80 bin, recall is 18 points higher and precision is 3 points higher in the combined model compared to the RGB-only model.</li>
-                  </ul>
-                </div>
-              </div>
-              <!-- Slide 5 -->
-              <div class="item">
-                <img src="static/images/results5.png" alt="Results 5" style="width: 100%; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 1.5rem;">
-                <div class="content has-text-justified" style="font-size: 1.13rem;">
-                  <ul>
-                    <li>Results underscore the importance of optical flow in capturing subtle wake events, particularly in mixed-state clips​</li>
-                    <li>Optical flow features enable the model to more effectively differentiate between sleep and wake than RGB features alone​</li>
-                    <li>Optical flow model exhibits significantly better sensitivity to wake events compared to the RGB-only model​</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!-- Subject Faces Carousel -->
-            <h2 class="title is-4 has-text-centered" style="margin-top: 2.5rem;">Results: Subject-Wise Performance Comparison​</h2>
-            <div id="subjects-carousel" class="carousel results-carousel" style="max-width: 1200px; margin: 2.5rem auto 0 auto;">
-              <!-- Slide 1 -->
-              <div class="item">
-                <img src="static/images/subject1.png" alt="Subject 1" style="width: 100%; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 1.5rem;">
-                <div class="content has-text-justified" style="font-size: 1.13rem;">
-                  <ul style="padding-left: 2rem; list-style-type: disc;">
-                    <li>The faces of subjects where the algorithm performs best, such as TS1, TS2, and TS3 appear prominently visible throughout the video​</li>
-                    <li>Faces may provide the model with more reliable motion cues, that describe the superior performance (97%, 95%, and 94% for TS1, TS2, and TS3, respectively)​</li>
-                    <li>For test subjects where algorithm performance is weaker, we notice the face becomes more obstructed and obscured​</li>
-                    <li>See face of subjects TS5, TS6, and TS7 appear off-center, darkened, or out of frame​</li>
-                  </ul>
-                </div>
-              </div>
-              <!-- Slide 2 -->
-              <div class="item">
-                <img src="static/images/subject2.png" alt="Subject 2" style="width: 100%; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 1.5rem;">
-                <div class="content has-text-justified" style="font-size: 1.13rem;">
-                  <ul style="padding-left: 2rem; list-style-type: disc;">
-                    <li>The faces of subjects where the algorithm performs best, such as TS1, TS2, and TS3 appear prominently visible throughout the video​</li>
-                    <li>Faces may provide the model with more reliable motion cues, that describe the superior performance (97%, 95%, and 94% for TS1, TS2, and TS3, respectively)​</li>
-                    <li>For test subjects where algorithm performance is weaker, we notice the face becomes more obstructed and obscured​</li>
-                    <li>See face of subjects TS5, TS6, and TS7 appear off-center, darkened, or out of frame​</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Results Section -->
-
   <!-- Additional Results Image Section -->
   <section class="hero is-small">
     <div class="hero-body">
@@ -478,6 +320,99 @@ of 17 infants.
     </div>
   </section>
   <!-- End Conclusion and Impact Section -->
+
+  <!-- Towards a Segmentation Solution Section -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths has-text-centered">
+            <h2 class="title is-3" style="margin-bottom: 2rem;">Towards a Segmentation Solution: Hidden Markov Models for Sleep-Wake Segmentation</h2>
+            <div class="animated-gradient">
+              <span style="margin: 0; font-size: 1.15rem; font-weight: 400; color: #333; display: block;">What can we learn about transitioning between sleep and wake states for longer full-video segmentation on the edge?</span>
+            </div>
+            <img src="static/images/transition.gif" alt="Sleep-Wake Transition Animation" style="display: block; margin: 0 auto 2rem auto; max-width: 600px; width: 100%;">
+            <div style="background: linear-gradient(90deg, #b3e0ff 0%, #ffb3b3 100%); border-radius: 18px; padding: 2rem 2rem 1.5rem 2rem; margin: 2rem auto 2rem auto; max-width: 900px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+              <h3 class="title is-4" style="margin: 2rem 0 1rem 0;">Extracting Pose and Optical Flow features</h3>
+              <div class="columns is-vcentered" style="margin-bottom: 0;">
+                <div class="column is-half">
+                  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+                    <iframe src="https://drive.google.com/file/d/1GSP8tUoL4uXVBC2ynLTSmNPNZU65dIu-/preview" allow="autoplay; encrypted-media" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;"></iframe>
+                  </div>
+                </div>
+                <div class="column is-half has-text-centered">
+                  <img src="static/images/flow.png" alt="Optical Flow Visualization" style="max-width: 100%; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+                </div>
+              </div>
+            </div>
+            <div style="background: rgba(108, 52, 131, 0.08); border-radius: 18px; padding: 2rem 2rem 1.5rem 2rem; margin: 2rem auto 2rem auto; max-width: 900px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+              <h3 class="title is-4" style="margin: 2rem 0 1rem 0;">NN-HMM architecture</h3>
+              <img src="static/images/HMM_architecture.png" alt="HMM Architecture" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Towards a Segmentation Solution Section -->
+
+  <!-- Example Results Section -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <div style="background: rgba(108, 52, 131, 0.08); border-radius: 18px; padding: 2rem 2rem 1.5rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+              <h2 class="title is-3 has-text-centered">Selected NN-HMM Segmentation Results</h2>
+              <div class="columns is-vcentered is-centered" style="margin: 2rem 0;">
+                <div class="column is-5">
+                  <img src="static/images/7_clip1.png" alt="Ground Truth Segmentation" style="width: 100%; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                  <p class="has-text-centered" style="margin-top: 1rem; font-weight: 600;">Extracted Features</p>
+                </div>
+                <div class="column is-2 has-text-centered">
+                  <div style="position: relative; height: 60px;">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%;">
+                      <div style="background: linear-gradient(90deg, #ffb3b3 0%, #b3e0ff 100%); height: 4px; width: 100%; position: relative;">
+                        <div style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-left: 15px solid #b3e0ff; border-top: 10px solid transparent; border-bottom: 10px solid transparent; animation: moveRight 2s infinite;">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="column is-5">
+                  <img src="static/images/7_clip1_predictions.png" alt="NN-HMM Predictions (Top: Ground Truth, Bottom: Predicted)" style="width: 100%; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                  <p class="has-text-centered" style="margin-top: 1rem; font-weight: 600;">NN-HMM Predictions (Top: Ground Truth, Bottom: Predicted)</p>
+                </div>
+              </div>
+
+              <!-- Second Example -->
+              <div class="columns is-vcentered is-centered" style="margin: 2rem 0;">
+                <div class="column is-5">
+                  <img src="static/images/7_clip6.png" alt="Ground Truth Segmentation" style="width: 100%; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                  <p class="has-text-centered" style="margin-top: 1rem; font-weight: 600;">Extracted Features</p>
+                </div>
+                <div class="column is-2 has-text-centered">
+                  <div style="position: relative; height: 60px;">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%;">
+                      <div style="background: linear-gradient(90deg, #ffb3b3 0%, #b3e0ff 100%); height: 4px; width: 100%; position: relative;">
+                        <div style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-left: 15px solid #b3e0ff; border-top: 10px solid transparent; border-bottom: 10px solid transparent; animation: moveRight 2s infinite;">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="column is-5">
+                  <img src="static/images/7_clip6_predictions.png" alt="NN-HMM Predictions (Top: Ground Truth, Bottom: Predicted)" style="width: 100%; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                  <p class="has-text-centered" style="margin-top: 1rem; font-weight: 600;">NN-HMM Predictions (Top: Ground Truth, Bottom: Predicted)</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Presentation Recording Section -->
   <section class="hero is-small">
