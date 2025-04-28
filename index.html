@@ -123,22 +123,91 @@ of 17 infants.
   </section>
   <!-- End paper abstract -->
 
+  <hr style="border: none; border-top: 2px solid #e0e0e0; margin: 2.5rem 0;">
+
+  <!-- Why monitor infant sleep? Section -->
+  <section class="section hero" style="background-color: #f9f6f3;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Why monitor infant sleep?</h2>
+          <ul style="text-align: left; font-size: 1.2rem; list-style-type: disc; padding-left: 2rem;">
+            <li class="animate__animated animate__fadeIn" style="margin-bottom: 1.2rem; animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards;">Infant sleep plays a vital role in early brain development, cognitive function, and overall well-being​</li>
+            <li class="animate__animated animate__fadeIn" style="animation-delay: 0.8s; opacity: 0; animation-fill-mode: forwards;">Disruptions in sleep patterns during infancy can signal developmental issues and have long-term implications for health and neurodevelopment​</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Why monitor infant sleep? Section -->
+
+  <!-- Towards a computer vision based approach Section -->
+  <section class="section hero is-white">
+    <div class="container is-max-desktop">
+      <div class="columns is-vcentered">
+        <!-- Left: Images -->
+        <div class="column is-5 has-text-centered">
+          <img src="static/images/eeg.png" alt="Polysomnography EEG" style="max-width: 90%; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-radius: 8px;">
+          <img src="static/images/baby.png" alt="Baby Sleep Video" style="max-width: 90%; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-radius: 8px;">
+        </div>
+        <!-- Right: Text and Toggles -->
+        <div class="column is-7">
+          <h2 class="title is-3" style="margin-bottom: 2rem;">Towards a computer vision based approach</h2>
+          <div style="text-align: left;">
+            <details style="margin-bottom: 1.5rem;">
+              <summary style="font-size: 1.15rem; font-weight: 600; cursor: pointer;">Problem: Traditional methods are intrusive, expensive, and uncomfortable, limiting their widespread use​</summary>
+              <ul style="margin-top: 1rem; margin-left: 1.5rem; list-style-type: disc;">
+                <li style="margin-bottom: 0.8rem;">Gold standard for sleep monitoring is polysomnography (PSG)​</li>
+                <li style="margin-bottom: 0.8rem;">PSG involves recording physiological signals using multiple contact sensors​</li>
+                <li>PSG can cause discomfort and disrupt natural sleep cycles​</li>
+              </ul>
+            </details>
+            <details>
+              <summary style="font-size: 1.15rem; font-weight: 600; cursor: pointer;">Solution: Using computer vision techniques, we aim to develop a non-invasive, scalable system for infant sleep—wake classification from naturalistic overnight videos​</summary>
+              <ul style="margin-top: 1rem; margin-left: 1.5rem; list-style-type: disc;">
+                <li style="margin-bottom: 0.8rem;">Spatiotemporal models provide a scalable and accessible alternative for analyzing infant sleep—wake states​</li>
+                <li>Home in on the strengths of computer vision to address the complexities of real-world infant behavior, moving toward a future of seamless, data-driven infant health monitoring​</li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Towards a computer vision based approach Section -->
+
   <!-- Main image -->
   <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
         <div class="columns is-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">Overall Pipeline</h2>
-            <img src="static/images/infantsleepwake-pipeline.png" alt="Infant Sleep-Wake Classification Overview">
-            <h2 class="subtitle has-text-centered">
-              Architecture of our two-stream network for infant sleep–wake classification. The model processes 90-second video clips through
-              parallel RGB and optical flow streams. Each stream consists of: (1) a Feature Extractor using 3D ConvNet to extract spatiotemporal
-              features from K sequential frames, (2) a Classifier incorporating self-attention mechanisms for temporal dependency modeling, temporal
-              averaging, and fully connected layers with rectified linear unit (ReLU) activation. A modality selection/fusion module allows flexible
-              stream combination (RGB alone, flow alone, or RGB + flow) before final classification into Sleep/Wake states. The architecture highlights
-              two main processing stages: feature extraction (green blocks) and classification (purple blocks).
-            </h2>
+            <div style="background: rgba(176, 35, 24, 0.08); border-radius: 18px; padding: 2.5rem 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+              <h2 class="title is-3 has-text-centered">Overall Pipeline</h2>
+              <img src="static/images/infantsleepwake-pipeline.png" alt="Infant Sleep-Wake Classification Overview" style="margin-bottom: 2rem;">
+              <div style="text-align: left; max-width: 900px; margin: 0 auto;">
+                <p style="font-weight: bold; margin-bottom: 0.5rem;">Two-Stream Network Architecture</p>
+                <ul style="margin-bottom: 1.2rem;">
+                  <li>Processes 90-second video clips through parallel <b>RGB</b> and <b>optical flow</b> streams.</li>
+                  <li>Each stream consists of two main stages:</li>
+                </ul>
+                <p style="font-weight: bold; margin-bottom: 0.5rem; margin-left: 1.5rem;">1. Feature Extraction</p>
+                <ul style="margin-bottom: 1.2rem; margin-left: 2.5rem;">
+                  <li>Uses 3D ConvNet to extract spatiotemporal features from K sequential frames.</li>
+                </ul>
+                <p style="font-weight: bold; margin-bottom: 0.5rem; margin-left: 1.5rem;">2. Classification</p>
+                <ul style="margin-bottom: 1.2rem; margin-left: 2.5rem;">
+                  <li>Incorporates self-attention mechanisms for temporal dependency modeling.</li>
+                  <li>Applies temporal averaging and fully connected layers with ReLU activation.</li>
+                </ul>
+                <p style="font-weight: bold; margin-bottom: 0.5rem;">Modality Selection/Fusion</p>
+                <ul style="margin-bottom: 1.2rem;">
+                  <li>Allows flexible stream combination: RGB alone, flow alone, or RGB + flow.</li>
+                  <li>Final classification into Sleep/Wake states.</li>
+                </ul>
+                <p style="font-size: 1rem; color: #222;">The architecture highlights two main processing stages: <span style="color: #218739; font-weight: bold;">feature extraction (green blocks)</span> and <span style="color: #6c3483; font-weight: bold;">classification (purple blocks)</span>.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -152,20 +221,21 @@ of 17 infants.
       <div class="container">
         <div class="columns is-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3 has-text-centered animate__animated animate__fadeIn">SmallSleeps Dataset Creation</h2>
-            <div class="content has-text-justified animate__animated animate__fadeIn animate__delay-1s">
-              <p>
-              The SmallSleeps dataset represents a significant contribution to infant sleep research, 
-              comprising 152 hours of overnight video recordings from 17 infants aged 4-11 months 
-              captured in real-world home environments. Unlike traditional sleep studies that rely on
-               intrusive equipment, SmallSleeps uses non-invasive video monitoring installed in cribs 
-               by caregivers. The dataset features comprehensive behavioral coding performed by research assistants who 
-               annotated sleep-wake states based on visible behavioral cues, with a particular focus on 
-               arousal events characterized by eye opening and body movements. For our final dataset, the videos were segmented into 90-second clips with varying levels
-                of "purity" (percentage of time in a single state), creating a robust foundation for
-                 developing and evaluating automated sleep classification algorithms despite the 
-                 relatively modest sample size.
-              </p>
+            <div style="background: rgba(108, 52, 131, 0.08); border-radius: 18px; padding: 2rem 2rem 1.5rem 2rem; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+              <h2 class="title is-3 has-text-centered animate__animated animate__fadeIn" style="margin-bottom: 1.5rem;">SmallSleeps Dataset Creation</h2>
+              <div class="content animate__animated animate__fadeIn animate__delay-1s" style="font-size: 1.13rem; margin-bottom: 0;">
+                <p style="margin-bottom: 1.2rem;">
+                  <b>Over 152 hours of overnight recordings</b> recorded at 10 frames per second of 17 infants aged 4–11 months
+                </p>
+                <ul style="margin-bottom: 1.2rem; padding-left: 1.5rem;">
+                  <li style="margin-bottom: 0.8rem;">Video cameras were sent to infants' homes and baby monitors were set up in cribs by caregivers and activated for overnight recordings​</li>
+                  <li style="margin-bottom: 0.8rem;">Behavioral coding employed to annotate sleep and wake states, allowing for non-invasive data collection​</li>
+                  <ul style="margin-bottom: 0.8rem; padding-left: 1.5rem;">
+                    <li style="margin-bottom: 0.6rem;">Each video reviewed in near-real-time by two research assistants who placed time markers for start and end of waking-like states​</li>
+                    <li>True wake states then inferred from the aggregation of both sets of codes</li>
+                  </ul>
+                </ul>
+              </div>
             </div>
             <div class="columns is-centered animate__animated animate__fadeIn animate__delay-2s">
               <div class="column is-half">
@@ -241,25 +311,60 @@ of 17 infants.
         <div class="columns is-centered">
           <div class="column is-four-fifths">
             <h2 class="title is-3 has-text-centered">Results and Analysis</h2>
-            
-            <!-- Results Image -->
-            <div class="columns is-centered">
-              <div class="column is-full">
-                <img src="static/images/results.png" alt="Classification Results Analysis" class="results-image" style="width: 100%; max-width: 1200px; margin: 0 auto; display: block;">
+            <div id="results-carousel" class="carousel results-carousel" style="max-width: 1200px; margin: 0 auto;">
+              <!-- Slide 1 -->
+              <div class="item">
+                <img src="static/images/results1.png" alt="Results 1" style="width: 100%; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 1.5rem;">
+                <div class="content has-text-justified" style="font-size: 1.13rem;">
+                  <ul>
+                    <li>When using RGB features alone, models achieve moderate accuracy <span style="color: #b02318;">(red boxes)</span>​</li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Slide 2 -->
+              <div class="item">
+                <img src="static/images/results2.png" alt="Results 2" style="width: 100%; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 1.5rem;">
+                <div class="content has-text-justified" style="font-size: 1.13rem;">
+                  <ul>
+                    <li>When using RGB features alone, models achieve moderate accuracy <span style="color: #b02318;">(red boxes)</span>​</li>
+                    <li>Introducing optical flow features in addition to RGB results in a substantial improvement in model performance <span style="color: #218739;">(green boxes)</span>​</li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Slide 3 -->
+              <div class="item">
+                <img src="static/images/results3.png" alt="Results 3" style="width: 100%; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 1.5rem;">
+                <div class="content has-text-justified" style="font-size: 1.13rem;">
+                  <ul>
+                    <li>When using RGB features alone, models achieve moderate accuracy <span style="color: #b02318;">(red boxes)</span>​</li>
+                    <li>Introducing optical flow features in addition to RGB results in a substantial improvement in model performance <span style="color: #218739;">(green boxes)</span>​</li>
+                    <li>For pure- and mixed-state models recall increases by 12 and 11 points, respectively ​</li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Slide 4 -->
+              <div class="item">
+                <img src="static/images/results4.png" alt="Results 4" style="width: 100%; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 1.5rem;">
+                <div class="content has-text-justified" style="font-size: 1.13rem;">
+                  <ul>
+                    <li>When using RGB features alone, models achieve moderate accuracy <span style="color: #b02318;">(red boxes)</span>​</li>
+                    <li>Introducing optical flow features in addition to RGB results in a substantial improvement in model performance <span style="color: #218739;">(green boxes)</span>​</li>
+                    <li>Most significant improvement is observed in the 70–80 bin, recall is 18 points higher and precision is 3 points higher in the combined model compared to the RGB-only model.</li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Slide 5 -->
+              <div class="item">
+                <img src="static/images/results5.png" alt="Results 5" style="width: 100%; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 1.5rem;">
+                <div class="content has-text-justified" style="font-size: 1.13rem;">
+                  <ul>
+                    <li>Results underscore the importance of optical flow in capturing subtle wake events, particularly in mixed-state clips​</li>
+                    <li>Optical flow features enable the model to more effectively differentiate between sleep and wake than RGB features alone​</li>
+                    <li>Optical flow model exhibits significantly better sensitivity to wake events compared to the RGB-only model​</li>
+                  </ul>
+                </div>
               </div>
             </div>
-
-            <!-- Analysis Paragraphs -->
-            <div class="content has-text-justified">
-              <p>
-                In our analysis of feature performance, we found compelling evidence for the superiority of optical flow features compared to RGB features for infant sleep-wake classification. Our RGB-only models achieved moderate accuracy (71-72%), while models incorporating optical flow features demonstrated substantial improvements, reaching 78% accuracy. The most dramatic enhancement was in recall, which increased by 11-12 percentage points when optical flow was included, while maintaining or slightly improving precision.
-                </p>
-                
-                <p>
-                The benefits of optical flow were particularly pronounced in the challenging 70-80% purity bin, where recall improved by 18 points and precision by 3 points compared to RGB-only models. This suggests optical flow excels at capturing the subtle movements characteristic of wake states, especially in ambiguous mixed-state clips. Our t-SNE visualization further supported this finding, showing distinct subject-specific clusters for wake states in the optical flow feature space, while RGB features showed considerable overlap between sleep and wake states within each subject's cluster.
-             </p>
-
-           </div>
           </div>
         </div>
       </div>
