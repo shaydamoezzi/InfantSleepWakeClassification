@@ -1,0 +1,32 @@
+<!-- Video Card Template -->
+<div class="video-card">
+    <h2>Video {VIDEO_ID}</h2>
+    <div id="plot-{VIDEO_ID}"></div>
+    <div class="metrics-section" id="metrics-{VIDEO_ID}">
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-title">Fleiss Kappa Score</div>
+                <div class="kappa-value">{FLEISS_KAPPA}</div>
+                <div class="kappa-label">Overall agreement between all annotators</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-title">Pairwise Agreement Matrix</div>
+                <div id="kappa-matrix-{VIDEO_ID}"></div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-title">Compare Annotators</div>
+                <div class="annotator-select">
+                    <select id="annotator1-{VIDEO_ID}" onchange="updateComparisonResult('{VIDEO_ID}')">
+                        <option value="">Select Annotator 1</option>
+                        {ANNOTATOR_OPTIONS}
+                    </select>
+                    <select id="annotator2-{VIDEO_ID}" onchange="updateComparisonResult('{VIDEO_ID}')">
+                        <option value="">Select Annotator 2</option>
+                        {ANNOTATOR_OPTIONS}
+                    </select>
+                </div>
+                <div id="comparison-result-{VIDEO_ID}" class="comparison-result"></div>
+            </div>
+        </div>
+    </div>
+</div> 
